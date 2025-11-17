@@ -220,15 +220,13 @@
     % Center header: Section information with leaf decoration
     \fancyhead[C]{%
         \footnotesize\itshape\color{emeraldDark}%
-        \leftmark%
-        \ifBlankTF{\rightmark}{}{%
-            \enspace%
-            \textcolor{emeraldAccent}{$\sim$}%
-            \;\zetacircle\;%
-            \textcolor{emeraldAccent}{$\sim$}%
-            \enspace%
-            \rightmark%
-        }%
+        \nouppercase{\leftmark}%
+        \enspace%
+        \textcolor{emeraldAccent}{$\sim$}%
+        \;\zetacircle\;%
+        \textcolor{emeraldAccent}{$\sim$}%
+        \enspace%
+        \nouppercase{\rightmark}%
     }
     
     % Right header: Nature icon

@@ -234,15 +234,13 @@
     % Center header: Section information with crown decoration
     \fancyhead[C]{%
         \footnotesize\itshape\color{royalDark}%
-        \leftmark%
-        \ifBlankTF{\rightmark}{}{%
-            \enspace%
-            \textcolor{royalAccent}{$\sim$}%
-            \;\zetacircle\;%
-            \textcolor{royalAccent}{$\sim$}%
-            \enspace%
-            \rightmark%
-        }%
+        \nouppercase{\leftmark}%
+        \enspace%
+        \textcolor{royalAccent}{$\sim$}%
+        \;\zetacircle\;%
+        \textcolor{royalAccent}{$\sim$}%
+        \enspace%
+        \nouppercase{\rightmark}%
     }
     
     % Right header: Magic icon
