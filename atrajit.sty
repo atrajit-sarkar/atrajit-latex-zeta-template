@@ -1,57 +1,145 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{atrajit}[2025/01/01 Atrajit’s Math & MZV Package]
+\ProvidesPackage{atrajit}[2025/01/01 Atrajit's Professional Mathematics & MZV Package]
 
-% ----------- Packages -------------
-\RequirePackage{geometry}
-\RequirePackage{amsmath}
-\RequirePackage{amssymb}
-\RequirePackage{amsfonts}
-\RequirePackage{mathtools}
-\RequirePackage{amsthm}
-\RequirePackage{bm}
-\RequirePackage{mathrsfs}
-\RequirePackage{xcolor}
-\RequirePackage{graphicx}
-\RequirePackage{enumitem}
-\RequirePackage{tikz}
-\RequirePackage{tikz-cd}
-\RequirePackage{fontawesome}
-\RequirePackage{fancyhdr}
-\RequirePackage{hyperref}
+%=============================================================================
+% PACKAGE DEPENDENCIES
+%=============================================================================
+
+% --- Core Mathematics Packages ---
+\RequirePackage{amsmath}           % Advanced math typesetting
+\RequirePackage{amssymb}           % Mathematical symbols
+\RequirePackage{amsfonts}          % Mathematical fonts
+\RequirePackage{mathtools}         % Enhanced math environments
+\RequirePackage{amsthm}            % Theorem environments
+\RequirePackage{bm}                % Bold mathematics
+\RequirePackage{mathrsfs}          % Script fonts for mathematics
+
+% --- Graphics and Visualization ---
+\RequirePackage{xcolor}            % Color support
+\RequirePackage{graphicx}          % Graphics inclusion
+\RequirePackage{tikz}              % Advanced graphics
+\RequirePackage{tikz-cd}           % Commutative diagrams
 \usetikzlibrary{positioning, shapes.misc, shapes.symbols, shapes.geometric}
 
-% Bibliography (optional – user must load biber)
+% --- Document Layout and Typography ---
+\RequirePackage{geometry}          % Page layout control
+\RequirePackage{fancyhdr}          % Custom headers and footers
+\RequirePackage{enumitem}          % Enhanced list environments
+\RequirePackage{fontawesome}       % Icon fonts
+
+% --- Bibliography Management ---
 \RequirePackage[backend=biber,style=ieee]{biblatex}
 
-% ----------- Import local macro files -------------
+% --- Hyperlinks (load last) ---
+\RequirePackage{hyperref}          % Hyperlinks and cross-references
+
+%=============================================================================
+% COLOR SCHEME - Professional Academic Blue Palette
+%=============================================================================
+
+% Define custom colors for the Zeta theme
+\definecolor{zetaPrimary}{RGB}{30, 70, 130}       % Deep Blue - scholarly elegance
+\definecolor{zetaSecondary}{RGB}{65, 105, 225}    % Royal Blue - refined accent
+\definecolor{zetaAccent}{RGB}{100, 149, 237}      % Cornflower Blue - highlight
+\definecolor{zetaDark}{RGB}{25, 25, 112}          % Midnight Blue - dark text
+\definecolor{zetaLight}{RGB}{230, 240, 255}       % Alice Blue - subtle background
+
+%=============================================================================
+% IMPORT LOCAL MACRO FILES
+%=============================================================================
 \InputIfFileExists{utils.tex}{}{}
 \InputIfFileExists{macros.tex}{}{}
 
-% ----------- Page style -------------
-\geometry{margin=1in}
-\pagestyle{fancy}
-\fancyhf{} % clear defaults
+%=============================================================================
+% PAGE LAYOUT CONFIGURATION
+%=============================================================================
 
-% Commands defined in utils/macros:
+% Set professional margins
+\geometry{margin=1in}
+
+% Configure page style with fancy headers/footers
+\pagestyle{fancy}
+\fancyhf{}                          % Clear default settings
+\setlength{\headheight}{26pt}       % Ensure adequate header space
+
+% Plain page style for title pages and chapter beginnings
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\fancyFootPageNum
+}
+
+%=============================================================================
+% HEADER AND FOOTER CUSTOMIZATION
+%=============================================================================
+
+% Apply custom footer and header commands (defined in utils.tex)
 \fancyFootPageNum
 \fancyHeaderContent
 
+% Professional section marking (academic book style)
+% Section: Display as "Section X | Title" (stored via standard marks)
+\renewcommand{\sectionmark}[1]{%
+    \markboth{\textsc{Section~\thesection}\enspace\textbar\enspace#1}{}%
+}
 
-\newcommand{\todotea}{\textbf{\textcolor{red}{TODO}}~\faCoffee}
+% Subsection: Display as "X.Y Title"
+\renewcommand{\subsectionmark}[1]{%
+    \markright{\thesubsection\enspace#1}%
+}
+
+%=============================================================================
+% CUSTOM UTILITY COMMANDS
+%=============================================================================
+
+% TODO marker with coffee icon
+\newcommand{\todotea}{\textbf{\textcolor{zetaPrimary}{TODO}}~\faCoffee}
+
+% Note marker with bell icon
+\newcommand{\notebell}{\textcolor{zetaPrimary}{\faBell}\enspace\textbf{Note:}}
+
+% Important marker with exclamation
+\newcommand{\importantmark}{\textcolor{zetaPrimary}{\faExclamationTriangle}\enspace\textbf{Important:}}
 
 
 
-% ----------- Theorem Environments -------------
+%=============================================================================
+% THEOREM ENVIRONMENTS
+%=============================================================================
+
+% Primary theorem-like environments (numbered by subsection)
 \newtheorem{theorem}{Theorem}[subsection]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{example}[theorem]{Example}
 
+% Definition-style environments
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 
+% Remark-style environments
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{note}[theorem]{Note}
+
+%=============================================================================
+% HYPERLINK STYLING
+%=============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=zetaPrimary,
+    citecolor=zetaSecondary,
+    urlcolor=zetaAccent,
+    bookmarksnumbered=true,
+    bookmarksopen=true,
+    bookmarksopenlevel=1,
+    pdfstartview=Fit,
+    pdfpagemode=UseOutlines
+}
+
+% Reset section counter to start from 1
+\setcounter{section}{0}
 
 \endinput

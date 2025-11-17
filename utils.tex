@@ -1,59 +1,142 @@
-% utils.tex
+%=============================================================================
+% UTILITY MACROS AND VISUAL ELEMENTS
+%=============================================================================
 
-% math tools
+%-----------------------------------------------------------------------------
+% Mathematical Decorations
+%-----------------------------------------------------------------------------
+
+% Elegant zeta symbol with professional academic styling
+% Features: Double-ring design, gradient effect, refined typography
 \newcommand{\zetacircle}{%
-    \tikz[baseline=-0.7ex]{
+    \tikz[baseline=-0.65ex]{
+        % Outer decorative ring (subtle accent)
+        \draw[
+            blue!50!black,
+            line width=0.5pt,
+            opacity=0.6
+        ] (0,0) circle (0.65em);
+        
+        % Inner filled circle with gradient-like appearance
+        \fill[blue!15!white] (0,0) circle (0.55em);
+        \draw[
+            blue!75!black,
+            line width=0.6pt
+        ] (0,0) circle (0.55em);
+        
+        % Mathematical symbol in elegant font
         \node[
-            circle,
-            fill=blue!70!black,
-            draw=blue!90!black,
-            line width=0.35pt,
-            text=white,
-            inner sep=0.8pt,      % << smaller padding
-            minimum size=0.95em   % << smaller circle
-        ] (z) {\scriptsize$\bm{\zeta}$};
+            text=blue!80!black,
+            font=\footnotesize\boldmath,
+            inner sep=0pt
+        ] at (0,0) {$\zeta$};
     }%
 }
 
+%-----------------------------------------------------------------------------
+% Footer Design: Professional Cloud Thought Bubble
+%-----------------------------------------------------------------------------
 
 \newcommand{\fancyFootPageNum}{
-    % Page style: Comic-style cloud thinking bubble in top right corner
-    \setlength{\footskip}{66pt}
-\renewcommand{\footrulewidth}{0.2pt}
-\fancyfoot[C]{
-    \raisebox{10pt}{% raises bubble further from the line
-    \begin{tikzpicture}[baseline=(main.base)]
-
-        % --- Bubble tail dots (thinking bubble style) ---
-        \node[circle, fill=blue!40, inner sep=0.8pt] (t1) at (0,0) {};
-        \node[circle, fill=blue!45, inner sep=1.2pt] (t2) at (0.15,0.05) {};
-        \node[circle, fill=blue!50, inner sep=1.6pt] (t3) at (0.32,0.08) {};
-
-        % --- Main cloud thinking bubble (compact & professional) ---
-        \node[
-            cloud,
-            cloud puffs=15,
-            cloud puff arc=120,
-            aspect=2.5,               % makes it more elliptical
-            draw=blue!70!black,
-            line width=0.6pt,
-            fill=blue!8,
-            inner xsep=3pt,           % horizontal padding
-            inner ysep=2pt,           % vertical padding (compact)
-            text=blue!80!black,
-            right=0.15cm of t3
-        ] (main)
-        {$\thepage\!\cdot\!\boldsymbol{\zeta(\emptyset)}$};
-
-    \end{tikzpicture}%
+    \setlength{\footskip}{50pt}
+    \renewcommand{\footrulewidth}{0.2pt}
+    \fancyfoot[C]{
+        \raisebox{8pt}{%
+            \begin{tikzpicture}[baseline=(main.base), scale=0.55]
+                
+                % Thinking bubble tail (elegant progression)
+                \node[circle, fill=blue!40, inner sep=0.3pt] (t1) at (0,0) {};
+                \node[circle, fill=blue!45, inner sep=0.5pt] (t2) at (0.12,0.04) {};
+                \node[circle, fill=blue!50, inner sep=0.7pt] (t3) at (0.26,0.07) {};
+                
+                % Main cloud bubble with page number
+                \node[
+                    cloud,
+                    cloud puffs=15,
+                    cloud puff arc=120,
+                    aspect=2.5,                  % Elliptical shape
+                    draw=blue!70!black,
+                    line width=0.3pt,
+                    fill=blue!8,
+                    inner xsep=1.2pt,            % Horizontal padding
+                    inner ysep=0.8pt,            % Vertical padding
+                    text=blue!80!black,
+                    font=\footnotesize,
+                    right=0.12cm of t3
+                ] (main)
+                {$\thepage\!\cdot\!\boldsymbol{\zeta(\emptyset)}$};
+                
+            \end{tikzpicture}%
+        }
     }
 }
+
+%-----------------------------------------------------------------------------
+% Header Design: Professional Academic Book Style
+%-----------------------------------------------------------------------------
+
+% Helper to test for empty tokens (avoids @-macros)
+\newcommand{\ifBlankTF}[3]{%
+    \if\relax\detokenize{#1}\relax
+        #2% Case: blank
+    \else
+        #3% Case: not blank
+    \fi
 }
 
-% \Fancy Header Utils
 \newcommand{\fancyHeaderContent}{
-    \renewcommand{\headrulewidth}{0.3pt} % thin decorative line
-\fancyhead[L]{Atrajit Sarkar}
-\fancyhead[C]{\leftmark \text{ }$\sim$\zetacircle$\sim$ \rightmark}      % Subsection title
+    % Header rule with refined thickness for professional appearance
+    \renewcommand{\headrulewidth}{0.4pt}
+    
+    % Left header: Section and subsection with elegant zeta separator
+    \fancyhead[C]{%
+        \footnotesize\itshape%
+        \ifBlankTF{\leftmark}{}{\nouppercase{\leftmark}}%
+        \ifBlankTF{\rightmark}{}{%
+            \quad\raisebox{-0.1ex}{\zetacircle}\quad\nouppercase{\rightmark}%
+        }%
+    }
+    
+    % % Center header: Empty
+    % \fancyhead[C]{}
+    
+    % Right header: Book icon
+    \fancyhead[R]{%
+        \footnotesize\textcolor{blue!65!black}{\faBook}%
+    }
+}
+
+%-----------------------------------------------------------------------------
+% Ornamental Section Break
+%-----------------------------------------------------------------------------
+
+% Decorative section separator with elegant design
+\newcommand{\sectionbreak}{%
+    \vspace{1.5em}
+    \begin{center}
+        \begin{tikzpicture}
+            % Left ornamental line
+            \draw[zetaSecondary, line width=0.3pt, opacity=0.6] 
+                (-2.5,0) -- (-1,0);
+            
+            % Left diamond
+            \node[text=zetaSecondary, font=\small] at (-0.7,0) {$\diamond$};
+            
+            % Central zeta circle with enhanced styling
+            \node at (0,0) {\zetacircle};
+            
+            % Right diamond
+            \node[text=zetaSecondary, font=\small] at (0.7,0) {$\diamond$};
+            
+            % Right ornamental line
+            \draw[zetaSecondary, line width=0.3pt, opacity=0.6] 
+                (1,0) -- (2.5,0);
+            
+            % Subtle decorative dots at ends
+            \fill[zetaAccent, opacity=0.4] (-2.6,0) circle (0.04);
+            \fill[zetaAccent, opacity=0.4] (2.6,0) circle (0.04);
+        \end{tikzpicture}
+    \end{center}
+    \vspace{1.5em}
 }
 

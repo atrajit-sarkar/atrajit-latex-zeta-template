@@ -1,0 +1,421 @@
+% ============================================================================
+% SAMPLE DOCUMENT USING ENHANCED ATRAJIT (ZETA) THEME
+% ============================================================================
+% This template demonstrates all the new features and macros available
+% in the enhanced zeta theme with professional styling
+% ============================================================================
+
+\documentclass[12pt, a4paper]{article}
+
+% ============================================================================
+% PACKAGE SELECTION
+% ============================================================================
+
+% Enhanced Zeta Theme (Blue colors, zeta symbols, professional styling)
+\usepackage{atrajit}
+
+% ============================================================================
+% DOCUMENT METADATA
+% ============================================================================
+
+\title{\textbf{Enhanced Zeta Theme Guide}\\
+       \large A Comprehensive Demonstration of Professional Features}
+\author{Atrajit Sarkar}
+\date{\today}
+
+% Bibliography file (if needed)
+% \addbibresource{references.bib}
+
+% ============================================================================
+% DOCUMENT CONTENT
+% ============================================================================
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document demonstrates the enhanced \texttt{atrajit} (zeta) theme with professional features including keyboxes, elegant section breaks, mathematical set shortcuts, text highlighting, and more. All features maintain the classic blue color palette with zeta-themed decorations.
+\end{abstract}
+
+\tableofcontents
+\pagebreak
+
+
+% ============================================================================
+\section{Introduction to Enhanced Features}
+% ============================================================================
+
+The enhanced \texttt{atrajit} package provides a complete professional look for mathematical documents with the following key features:
+
+\begin{itemize}
+    \item Professional blue color palette (zetaPrimary, zetaSecondary, zetaAccent)
+    \item Elegant decorative elements throughout
+    \item Enhanced theorem environments
+    \item Keybox highlighting for important formulas
+    \item Mathematical set notation shortcuts
+    \item Text highlighting macros
+    \item Reference shortcuts
+\end{itemize}
+
+\subsection{Color Scheme}
+
+The theme uses a sophisticated academic blue palette:
+\begin{itemize}
+    \item \textcolor{zetaPrimary}{\textbf{Primary:}} Deep Blue for main elements
+    \item \textcolor{zetaSecondary}{\textbf{Secondary:}} Royal Blue for accents
+    \item \textcolor{zetaAccent}{\textbf{Accent:}} Cornflower Blue for highlights
+\end{itemize}
+
+% ============================================================================
+\section{Mathematical Set Shortcuts}
+% ============================================================================
+
+\subsection{Common Sets}
+
+The package provides convenient shortcuts for standard mathematical sets:
+
+\keybox{
+$$
+\begin{array}{ll}
+    \RR \text{ (Real numbers)}, \quad
+\QQ \text{ (Rationals)}, \quad
+\ZZ \text{ (Integers)}, \quad
+\NN \text{ (Natural numbers)},\\
+\CC \text{ (Complex numbers)}
+\end{array}
+$$
+}
+
+\textbf{Usage:}
+\begin{verbatim}
+\RR    Real numbers
+\QQ    Rational numbers
+\ZZ    Integers
+\NN    Natural numbers
+\CC    Complex numbers
+\end{verbatim}
+
+\sectionbreak
+
+% ============================================================================
+\section{Keybox Feature}
+% ============================================================================
+
+\subsection{Highlighting Important Formulas}
+
+Use \verb|\keybox{...}| to highlight key equations and important content:
+
+\keybox{
+\textbf{Euler's Identity:}
+$$
+e^{i\pi} + 1 = 0
+$$
+This beautiful equation connects five fundamental mathematical constants.
+}
+
+\subsection{Multiple Equations in Keybox}
+
+\keybox{
+\begin{equation}
+    \zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s}
+\end{equation}
+\begin{equation}
+    \zeta(2) = \frac{\pi^2}{6}
+\end{equation}
+}
+
+\sectionbreak
+
+% ============================================================================
+\section{Text Highlighting Macros}
+% ============================================================================
+
+\subsection{Mathematical Terms}
+
+Emphasize important mathematical terms using \verb|\mathterm{...}|:
+
+The \mathterm{eigenvalue} of a matrix is a scalar that satisfies the characteristic equation. The concept of \mathterm{convergence} is fundamental in analysis.
+
+\subsection{Definition Terms}
+
+Use \verb|\defterm{...}| for defining new concepts:
+
+A \defterm{metric space} is a set equipped with a distance function. We say a sequence is \defterm{Cauchy} if its terms become arbitrarily close.
+
+\subsection{Code and Notation}
+
+Use \verb|\code{...}| for inline code or special notation:
+
+The function \code{zeta(s)} computes the Riemann zeta function. Use \code{integrate(f, a, b)} for numerical integration.
+
+\sectionbreak
+
+% ============================================================================
+\section{Theorem Environments}
+% ============================================================================
+
+\subsection{Standard Theorems}
+
+\begin{theorem}[Fundamental Theorem of Calculus]
+Let $f$ be continuous on $[a,b]$. Then
+$$
+\int_a^b f(x)\,dx = F(b) - F(a)
+$$
+where $F$ is any antiderivative of $f$.
+\end{theorem}
+
+\begin{proof}
+This follows from the definition of the definite integral.
+\end{proof}
+
+\begin{lemma}
+Every convergent sequence in $\RR^n$ is bounded.
+\end{lemma}
+
+\begin{proposition}
+The intersection of two open sets is open.
+\end{proposition}
+
+\begin{corollary}
+The set of irrational numbers is uncountable.
+\end{corollary}
+
+\subsection{Definitions and Examples}
+
+\begin{definition}[Topology]
+A \defterm{topology} on a set $X$ is a collection $\mathcal{T}$ of subsets of $X$ satisfying:
+\begin{enumerate}
+    \item $\emptyset, X \in \mathcal{T}$
+    \item Arbitrary unions of sets in $\mathcal{T}$ are in $\mathcal{T}$
+    \item Finite intersections of sets in $\mathcal{T}$ are in $\mathcal{T}$
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+The standard topology on $\RR$ is generated by open intervals $(a,b)$.
+\end{example}
+
+\begin{remark}
+Not every collection of subsets forms a topology.
+\end{remark}
+
+\begin{note}
+This is a useful note about the concept being discussed.
+\end{note}
+
+\sectionbreak
+
+% ============================================================================
+\section{Custom Markers}
+% ============================================================================
+
+\subsection{TODO Items}
+
+Use \verb|\todotea| for tasks that need attention:
+
+\todotea\ Complete the proof of convergence for the series.
+
+\todotea\ Add references to recent papers on this topic.
+
+\subsection{Important Notes}
+
+Use \verb|\notebell| for important notes:
+
+\notebell\ This assumption is crucial for the proof to work.
+
+\subsection{Critical Information}
+
+Use \verb|\importantmark| for warnings or critical information:
+
+\importantmark\ The function must be continuous for this theorem to apply.
+
+\sectionbreak
+
+% ============================================================================
+\section{Reference Shortcuts}
+% ============================================================================
+
+\subsection{Theorem References}
+
+The package provides convenient shortcuts for referencing theorems:
+
+\begin{theorem}\label{thm:main}
+This is an important theorem.
+\end{theorem}
+
+\begin{lemma}\label{lem:key}
+This is a key lemma.
+\end{lemma}
+
+Later in the document, you can reference them using shortcuts:
+
+\textbf{Usage:}
+\begin{verbatim}
+\thmref{thm:main}    % Theorem~\ref{thm:main}
+\lemref{lem:key}     % Lemma~\ref{lem:key}
+\propref{prop:basic} % Proposition~\ref{prop:basic}
+\corref{cor:result}  % Corollary~\ref{cor:result}
+\defref{def:space}   % Definition~\ref{def:space}
+\exref{ex:simple}    % Example~\ref{ex:simple}
+\end{verbatim}
+
+\textbf{Examples:} \thmref{thm:main} is important, and \lemref{lem:key} supports it. 
+
+\sectionbreak
+
+% ============================================================================
+\section{Section Breaks}
+% ============================================================================
+
+Use \verb|\sectionbreak| to add elegant ornamental dividers between sections or subsections. This creates a professional visual separation with:
+
+\begin{itemize}
+    \item Ornamental horizontal lines
+    \item Diamond symbols
+    \item Central zeta circle badge
+    \item Decorative dots at the ends
+\end{itemize}
+
+The section break appears throughout this document between major sections.
+
+% ============================================================================
+\section{Advanced Examples}
+% ============================================================================
+
+\subsection{Complex Mathematical Content}
+
+\keybox{
+\textbf{Multiple Zeta Values:}
+$$
+\zeta(k_1, k_2, \ldots, k_r) = \sum_{n_1 > n_2 > \cdots > n_r > 0} \frac{1}{n_1^{k_1} n_2^{k_2} \cdots n_r^{k_r}}
+$$
+}
+
+\begin{theorem}[Stuffle Product]
+For positive integers $k_1, k_2$, we have:
+$$
+\zeta(k_1)\zeta(k_2) = \zeta(k_1,k_2) + \zeta(k_2,k_1) + \zeta(k_1+k_2)
+$$
+\end{theorem}
+
+\subsection{Using Multiple Features}
+
+The \mathterm{Riemann zeta function} $\zeta(s)$ is defined for $s \in \CC$ with $\Re(s) > 1$ by:
+
+\keybox{
+$$
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}
+$$
+}
+
+\notebell\ The product formula shows the deep connection between $\zeta(s)$ and prime numbers.
+
+\begin{definition}[Analytic Continuation]
+The \defterm{analytic continuation} of $\zeta(s)$ extends the function to all $s \in \CC \setminus \{1\}$.
+\end{definition}
+
+\sectionbreak
+
+% ============================================================================
+\section{Equation Numbering}
+% ============================================================================
+
+\subsection{Default Numbering}
+
+By default, equations are numbered by section:
+
+\begin{equation}
+    \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+
+\subsection{Subsection Numbering}
+
+Use \verb|\useSubsectionEqNum| to number equations by subsection (as shown in main.tex).
+
+\subsection{Subsubsection Numbering}
+
+Use \verb|\useSubsubsectionEqNum| to number equations by subsubsection:
+
+\begin{verbatim}
+\useSubsubsectionEqNum
+\end{verbatim}
+
+% ============================================================================
+\section{Hyperlink Styling}
+% ============================================================================
+
+The theme includes professional hyperlink styling with colored links:
+
+\begin{itemize}
+    \item Internal links (sections, equations): \textcolor{zetaPrimary}{Deep Blue}
+    \item Citations: \textcolor{zetaSecondary}{Royal Blue}
+    \item URLs: \textcolor{zetaAccent}{Cornflower Blue}
+\end{itemize}
+
+All links are properly configured with bookmarks and navigation features.
+
+\sectionbreak
+
+% ============================================================================
+\section{Best Practices}
+% ============================================================================
+
+\subsection{When to Use Keyboxes}
+
+Use keyboxes for:
+\begin{enumerate}
+    \item Main theorems and results
+    \item Key formulas that should stand out
+    \item Important definitions
+    \item Summary equations
+\end{enumerate}
+
+\subsection{Section Organization}
+
+Use \verb|\sectionbreak| between:
+\begin{itemize}
+    \item Major sections or exercises
+    \item Different topics within a section
+    \item Before and after important results
+\end{itemize}
+
+\subsection{Text Highlighting}
+
+\begin{itemize}
+    \item Use \verb|\mathterm{}| for technical mathematical terms
+    \item Use \verb|\defterm{}| when first introducing a concept
+    \item Use \verb|\code{}| for notation, functions, or algorithms
+\end{itemize}
+
+% ============================================================================
+\section{Conclusion}
+% ============================================================================
+
+The enhanced \texttt{atrajit} (zeta) theme provides a complete professional toolkit for mathematical documents. Key features include:
+
+\keybox{
+\textbf{Summary of Features:}
+\begin{itemize}
+    \item Professional blue color palette
+    \item Keybox highlighting: \texttt{\textbackslash keybox\{...\}}
+    \item Mathematical sets: \texttt{\textbackslash RR}, \texttt{\textbackslash QQ}, \texttt{\textbackslash ZZ}, \texttt{\textbackslash NN}, \texttt{\textbackslash CC}
+    \item Text highlighting: \texttt{\textbackslash mathterm\{\}}, \texttt{\textbackslash defterm\{\}}, \texttt{\textbackslash code\{\}}
+    \item Custom markers: \texttt{\textbackslash todotea}, \texttt{\textbackslash notebell}, \texttt{\textbackslash importantmark}
+    \item Reference shortcuts: \texttt{\textbackslash thmref\{\}}, \texttt{\textbackslash lemref\{\}}, etc.
+    \item Elegant section breaks: \texttt{\textbackslash sectionbreak}
+\end{itemize}
+}
+
+\sectionbreak
+
+\begin{center}
+\textit{Happy typesetting with the enhanced Zeta theme!}
+\end{center}
+
+% ============================================================================
+% BIBLIOGRAPHY (if needed)
+% ============================================================================
+% \printbibliography
+
+\end{document}
