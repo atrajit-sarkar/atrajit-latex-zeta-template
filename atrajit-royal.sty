@@ -1,0 +1,126 @@
+%=============================================================================
+% ROYAL THEME - Elegant Purple & Gold Luxury
+% A sophisticated theme inspired by royal manuscripts and luxury design
+%=============================================================================
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{atrajit-royal}[2025/11/17 Royal Theme for Academic Documents]
+
+%=============================================================================
+% ESSENTIAL PACKAGES
+%=============================================================================
+
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{mathtools}
+\RequirePackage{bm}
+\RequirePackage{mathrsfs}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\usetikzlibrary{positioning, shapes.misc, shapes.symbols, shapes.geometric, decorations.pathmorphing, decorations.markings, shadows}
+\RequirePackage{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{enumitem}
+\RequirePackage{fontawesome}
+\RequirePackage[backend=biber, style=alphabetic]{biblatex}
+\RequirePackage{hyperref}
+
+%=============================================================================
+% ROYAL COLOR PALETTE - Regal Luxury
+%=============================================================================
+
+\definecolor{royalPrimary}{RGB}{75,0,130}         % Deep royal purple
+\definecolor{royalSecondary}{RGB}{138,43,226}     % Blue violet
+\definecolor{royalDark}{RGB}{48,25,52}            % Dark purple
+\definecolor{royalLight}{RGB}{230,230,250}        % Lavender
+\definecolor{royalAccent}{RGB}{218,165,32}        % Goldenrod
+
+%=============================================================================
+% HYPERLINK CONFIGURATION - Royal Purple Accents
+%=============================================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=royalPrimary,
+    citecolor=royalSecondary,
+    urlcolor=royalDark,
+    bookmarksnumbered=true
+}
+
+%=============================================================================
+% PAGE GEOMETRY - Luxurious Layout
+%=============================================================================
+
+\geometry{
+    a4paper,
+    top=2.5cm,
+    bottom=3cm,
+    left=2.5cm,
+    right=2.5cm,
+    headheight=20pt
+}
+
+%=============================================================================
+% THEOREM ENVIRONMENTS - Royal Styling
+%=============================================================================
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{exercise}[theorem]{Exercise}
+
+%=============================================================================
+% SECTION FORMATTING - Crown-Inspired Headers
+%=============================================================================
+
+\newcommand{\currentSubsectionMarkRoyal}{}
+
+% Section: Display with crown symbol
+\renewcommand{\sectionmark}[1]{%
+    \markboth{{\scshape\S\,\thesection}\enspace\raisebox{-0.15ex}{$\cdot$}\enspace#1}{}%
+}
+
+% Subsection: Display with section symbol
+\renewcommand{\subsectionmark}[1]{%
+    \markright{\S\,\thesubsection\enspace#1}%
+    \gdef\currentSubsectionMarkRoyal{%
+        \S\,\thesubsection\enspace#1%
+    }%
+}
+
+%=============================================================================
+% CUSTOM UTILITY COMMANDS
+%=============================================================================
+
+% TODO marker with magic icon
+\newcommand{\todotea}{\textbf{\textcolor{royalPrimary}{TODO}}~\faMagic}
+
+% Note marker with gem icon
+\newcommand{\notebell}{\textcolor{royalSecondary}{\faGem}\enspace\textbf{Note:}}
+
+% Important marker with star
+\newcommand{\important}{\textcolor{royalAccent}{\faStar}\enspace\textbf{Important:}}
+
+%=============================================================================
+% LOAD THEME UTILITIES AND MACROS
+%=============================================================================
+
+\input{utils-royal.tex}
+\input{macros-royal.tex}
+
+%=============================================================================
+% HEADER & FOOTER SETUP
+%=============================================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyHeaderContent
+\fancyFootPageNum
+
+\endinput
